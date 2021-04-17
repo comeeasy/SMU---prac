@@ -235,6 +235,7 @@ if __name__ == '__main__' :
             output = model.forward(img)
             loss = loss_fn(output, label)
 
+
             loss.backward()
             optimizer.step()
 
