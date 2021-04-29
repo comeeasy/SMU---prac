@@ -16,14 +16,14 @@ def get_cifar10_dataloader(batch_size):
                                 transform=transforms.Compose([
                                     # data augmentation
                                     transforms.RandomHorizontalFlip(),
-                                    transforms.RandomRotation(degrees=45),
+                                    transforms.RandomRotation(degrees=30),
 
                                     # data normalization
                                     transforms.ToTensor(),
                                     transforms.Normalize(
-                                        mean=dsets.CIFAR10.train_list.mean(axis=(0,1,2)),
-                                        std =dsets.CIFAR10.train_list.std(axis=(0,1,2)))
-                                ]),
+                                        mean=[0.4913997551666284, 0.48215855929893703, 0.4465309133731618],
+                                        std=[0.24703225141799082, 0.24348516474564, 0.26158783926049628])
+                                    ]),
                                 target_transform=None,
                                 download=True)
 
@@ -32,8 +32,8 @@ def get_cifar10_dataloader(batch_size):
                               transform=transforms.Compose([
                                   transforms.ToTensor(),
                                   transforms.Normalize(
-                                      mean=dsets.CIFAR10.train_list.mean(axis=(0,1,2)),
-                                      std =dsets.CIFAR10.train_list.std(axis=(0,1,2)))
+                                      mean=[0.4913997551666284, 0.48215855929893703, 0.4465309133731618],
+                                      std=[0.24703225141799082, 0.24348516474564, 0.26158783926049628])
                               ]),
                               target_transform=None,
                               download=True)
